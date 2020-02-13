@@ -1,0 +1,47 @@
+.navbar-wrapper{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    left: 0;
+    z-index: 20;
+}
+
+.search-button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.navbar-custom{
+    background-color: rgb(0, 14, 53);
+}
+
+.navbar-custom .navbar-text { 
+    color: #00d573;
+    transition: 1s ease
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #00d573;
+    margin-left: 20px;
+    transition: .5s ease;
+}
+
+.navbar-nav .nav-link:hover{
+    color: red !important;
+    font-size: large;
+    transition: 1s ease;
+}
+
+.film-icon{
+    color: #00d573
+}
+
+.search-icon{
+    color: #00d573
+}
+
+.navbar-toggle .icon-bar{ 
+    background-color: #00d573;
+}
