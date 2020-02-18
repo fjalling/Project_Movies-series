@@ -6,18 +6,33 @@ function searchOnClick(){
         var data = JSON.parse(this.response);
         console.log(data.results);
         $(document).ready(function(){
-            for(i = 0; i <= 20; i++){
-                $('#movie-card-text-' + (i + 1)).text("");
+            var html = '<div class="col mb-4">';
+            html += '<div class="card movie-image">';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            const printcard = document.getElementById("print-card");
+            if(printcard.innerHTML !== ''){
+                printcard.innerHTML = '';
             }
-            for(i = 0; i < data.results.length; i++){
-                $('#movie-card-' +(i + 1)).show();
-                $('#movie-card-text-' + (i + 1)).text(data.results[i].title);
-            }
-            for(i = 0; i < 20; i++){
-                if($('#movie-card-text-' + (i + 1)).text() === ""){
-                    $('#movie-card-' +(i + 1)).hide();
+            for (var i = 0; i < data.results.length; i++) {
+                $('#print-card').append(html);
+                mytext = data.results[i].title;
+                myimage = data.results[i].poster_path;
+
+                var $img = $("<img/>");
+                if(myimage === null){
+                    $img.attr("src", "img/Placeholder.png");
                 }
-            }
+                else{
+                    $img.attr("src", "http://image.tmdb.org/t/p/w185_and_h278_bestv2/" + myimage);
+                }
+                $(".movie-image:eq("+i+")").append($img);
+                var $card = $("<div/>");
+                $card.attr("class", "card-body");
+                $card.text(mytext);
+                $(".movie-image:eq("+i+")").append($card);
+              }
         });
     };
     request.send();
