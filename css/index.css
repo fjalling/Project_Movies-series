@@ -1,0 +1,9 @@
+.film-icon{
+    color: #00d573;
+}
+
+.custom-container{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
