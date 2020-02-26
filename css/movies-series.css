@@ -29,7 +29,7 @@
 }
 
 .navbar-nav .nav-link:hover{
-    color: red !important;
+    color: #0069d9 !important;
     font-size: large;
     transition: 1s ease;
 }
@@ -55,4 +55,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.checked {
+    color: orange;
 }
