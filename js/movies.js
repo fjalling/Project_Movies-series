@@ -28,7 +28,7 @@ function searchOnClick(){
                 else{
                     $img.attr("src", "http://image.tmdb.org/t/p/w185_and_h278_bestv2/" + myimage);
                 }
-                $img.attr("onclick", "switchPage(" + data.results[i].id + ")");
+                $img.attr("onclick", "getMovieByID(" + data.results[i].id + ")");
                 $(".movie-image:eq("+i+")").append($img);
                 var $card = $("<div/>");
                 $card.attr("class", "card-body");
@@ -50,9 +50,9 @@ function searchOnClick(){
     request.send();
 }
 
-function switchPage(id){
-    var queryString = "?para1=" + id
-    window.location.href = "movie-serie.html" + queryString;
+function getMovieByID(id){
+    url = '/movieID.html?id=' + encodeURIComponent(id);
+    document.location.href = url;
 }
 
 function search() {

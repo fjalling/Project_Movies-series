@@ -4,7 +4,7 @@ function searchOnClick(){
     request.open('GET', 'https://api.themoviedb.org/3/search/tv?api_key=fc762d52bec3d2991597a025cdb95b91&language=en-US&page=1&include_adult=false&query=' + query);
     request.onload = function() {
         var data = JSON.parse(this.response);
-        console.log(data);
+        console.log(data.results);
         $(document).ready(function(){
             var html = '<div class="col mb-4">';
             html += '<div class="card movie-image">';
@@ -28,6 +28,7 @@ function searchOnClick(){
                 else{
                     $img.attr("src", "http://image.tmdb.org/t/p/w185_and_h278_bestv2/" + myimage);
                 }
+                $img.attr("onclick", "getMovieByID(" + data.results[i].id + ")");
                 $(".movie-image:eq("+i+")").append($img);
                 var $card = $("<div/>");
                 $card.attr("class", "card-body");
@@ -47,6 +48,11 @@ function searchOnClick(){
         });
     };
     request.send();
+}
+
+function getMovieByID(id){
+    url = '/serieID.html?id=' + encodeURIComponent(id);
+    document.location.href = url;
 }
 
 function search() {
