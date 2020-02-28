@@ -1,3 +1,11 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
 .navbar-wrapper{
     position: absolute;
     top: 0;
@@ -46,8 +54,38 @@
     background-color: #00d573;
 }
 
-.custom-container{
+.flex-container{
     margin-top:100px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.flex-item {
+    order: 1;
+    flex: 0 1 auto;
+    align-self: auto;
+    min-width: 0;
+    min-height: auto;
+    margin-top: 100px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+@media only screen and (max-width: 850px) {
+    .flex-item {
+        order: 1;
+        flex: 0 1 auto;
+        align-self: auto;
+        min-width: 0;
+        min-height: auto;
+        margin-top: 100px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 }
 
 .centered {
@@ -59,4 +97,8 @@
 
 .checked {
     color: orange;
+}
+
+#print-card {
+
 }

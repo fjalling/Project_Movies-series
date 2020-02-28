@@ -19,6 +19,7 @@ function searchOnClick(){
                 $('#print-card').append(html);
                 mytext = data.results[i].title;
                 myimage = data.results[i].poster_path;
+                myrating = data.results[i].vote_average;
 
                 var $img = $("<img/>");
                 if(myimage === null){
@@ -27,15 +28,31 @@ function searchOnClick(){
                 else{
                     $img.attr("src", "http://image.tmdb.org/t/p/w185_and_h278_bestv2/" + myimage);
                 }
+                $img.attr("onclick", "getMovieByID(" + data.results[i].id + ")");
                 $(".movie-image:eq("+i+")").append($img);
                 var $card = $("<div/>");
                 $card.attr("class", "card-body");
                 $card.text(mytext);
                 $(".movie-image:eq("+i+")").append($card);
+                var $container = $("<div/>")
+                for(var y = 1; y <= 10; y++){
+                    var $rating = $("<span/>");
+                    $rating.attr("class", "fa fa-star");
+                    if(myrating >= y){
+                        $rating.toggleClass("checked");
+                    }
+                    $container.append($rating);
+                }
+                $(".movie-image:eq("+i+")").append($container);
               }
         });
     };
     request.send();
+}
+
+function getMovieByID(id){
+    url = '/movieID.html?id=' + encodeURIComponent(id);
+    document.location.href = url;
 }
 
 function search() {

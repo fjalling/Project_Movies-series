@@ -1,9 +1,54 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.flex-item1 {
+    order: 1;
+    flex: 0 1 auto;
+    align-self: auto;
+    min-width: 0;
+    min-height: auto;
+}
+
+.flex-item2 {
+    order: 2;
+    flex: 0 1 auto;
+    align-self: auto;
+    min-width: 0;
+    min-height: auto;
+}
+
+.flex-item3 {
+    order: 3;
+    flex: 0 1 auto;
+    align-self: auto;
+    min-width: 0;
+    min-height: auto;
+}
+
 .film-icon{
     color: #00d573;
 }
 
-.custom-container{
-    display: grid;
-    place-items: center;
-    height: 100vh;
+.custom-button{
+    background-color: #00d573;
+    width: 150px;
+    margin: 40px;
+}
+
+h1{
+    color:white;
 }
